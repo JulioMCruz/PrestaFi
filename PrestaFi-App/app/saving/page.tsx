@@ -14,9 +14,19 @@ import BenefitsComponent from "@/components/Benefits";
 import FooterSection from "@/components/Footer";
 import SavingComponent from "@/components/Saving";
 
+import { useState, useEffect } from "react";
+
+import React from 'react'
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
+
 export default function Savings() {
 
-  const { stellarWalletAddress, setStellarWalletAddress } = useContext(GlobalContext);
+  const { showConfetti, setShowConfetti } = useContext(GlobalContext);
+  const { width, height } = useWindowSize()
+  
+  setShowConfetti(false);
 
   return (
     <>
@@ -29,7 +39,12 @@ export default function Savings() {
             <HeaderComponent />
 
             <main className="flex flex-col items-center">
-
+              { showConfetti && (
+                <Confetti
+                  width={width}
+                  height={height}
+                />         
+              )}
               <SavingComponent />
 
             </main>
