@@ -70,7 +70,7 @@ export default function SavingComponent() {
             <Button variant="ghost" size="icon">
               <MinusIcon className="w-4 h-4" />
             </Button>
-            <span>1000 USDC</span>
+            <span>1200 USDC</span>
             <Button variant="ghost" size="icon">
               <PlusIcon className="w-4 h-4" />
             </Button>
