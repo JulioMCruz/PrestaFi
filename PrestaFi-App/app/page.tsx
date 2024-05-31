@@ -10,6 +10,7 @@ import HeaderComponent from "@/components/Header";
 import HeroComponent from "@/components/HeroComponent";
 import CallToActionComponent from "@/components/CallToAction";
 import HowWorksComponent from "@/components/HowWorks";
+import BenefitsComponent from "@/components/Benefits";
 
 export default function Home() {
 
@@ -30,6 +31,8 @@ export default function Home() {
           {/* <CallToActionComponent /> */}
 
           <HowWorksComponent />
+
+          <BenefitsComponent />
 
           <main className="flex flex-col items-center">
           </main>
