@@ -5,7 +5,7 @@ import { JSX, ClassAttributes, HTMLAttributes } from "react"
 
 export default function PaymentComponent() {
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-24">
       <div className="mb-4">
         <h2 className="text-lg font-semibold text-gray-700">You choose saving for</h2>
         <p className="text-xl font-bold text-gray-900">$1,200 USD</p>
@@ -17,7 +17,7 @@ export default function PaymentComponent() {
         <h3 className="text-lg font-semibold text-gray-700">This month I will pay</h3>
         <div className="flex justify-between items-center mt-2">
           <span className="text-xl font-bold text-gray-900">$1,000 USD</span>
-          <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Pay</Button>
+          <Button className="bg-[#047463] hover:bg-[#047463] text-white font-bold py-2 px-4 rounded">Pay</Button>
         </div>
       </div>
       <div className="mb-4">
@@ -43,7 +43,7 @@ function BarChart(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElemen
         indexBy="name"
         margin={{ top: 0, right: 0, bottom: 40, left: 40 }}
         padding={0.3}
-        colors={["#2563eb"]}
+        colors={["#70f7c9"]}
         axisBottom={{
           tickSize: 0,
           tickPadding: 16,

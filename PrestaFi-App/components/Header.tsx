@@ -55,17 +55,17 @@ export default function HeaderComponent() {
     <header className="absolute top-0 left-0 right-0 flex justify-between items-center p-4">
           <Link href="/" className="ml-8">
             {/* <h1 className="text-5xl ml-8">PrestaFi</h1> */}
-            <PrestaFiLogo className="h-12 w-12 mb-4" />
+            <PrestaFiLogo className="h-18 w-18 mb-4" />
           </Link> 
           { stellarWalletAddress && (
           <nav className="hidden md:flex mt-6">
-            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/">
+            <Link className="text-gray-300 hover:text-white text-xl mx-4" href="/">
               Home
             </Link>
-            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/saving">
+            <Link className="text-gray-300 hover:text-white text-xl mx-4" href="/saving">
               Save
             </Link>
-            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/payments">
+            <Link className="text-gray-300 hover:text-white text-xl mx-4" href="/payments">
               Investment
             </Link>
           </nav>          
