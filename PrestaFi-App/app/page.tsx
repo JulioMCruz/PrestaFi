@@ -11,13 +11,14 @@ import HeroComponent from "@/components/HeroComponent";
 import CallToActionComponent from "@/components/CallToAction";
 import HowWorksComponent from "@/components/HowWorks";
 import BenefitsComponent from "@/components/Benefits";
+import FooterSection from "@/components/Footer";
 
 export default function Home() {
 
   const { stellarWalletAddress, setStellarWalletAddress } = useContext(GlobalContext);
 
   return (
-
+    <>
     <div className="px-10 py-20">
       <div className="absolute -z-50 top-0 mx-auto w-1/2 h-1/2 bg-primary/50 blur-[256px] opacity-75 rounded-full -z-1" />
       <div className="absolute -z-50 top-0 left-0 w-1/2 h-1/2 bg-green-300/70 blur-[256px] opacity-45 rounded-full -z-1" />
@@ -36,9 +37,12 @@ export default function Home() {
 
           <main className="flex flex-col items-center">
           </main>
+
+
         </div>
       </div>
     </div>
-
+          <FooterSection />
+          </>
   );
 }
