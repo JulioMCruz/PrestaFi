@@ -5,18 +5,20 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { JSX, SVGProps } from "react"
 
-import { isAllowed, setAllowed, getUserInfo } from '@stellar/freighter-api';
+import { isAllowed, setAllowed, getUserInfo, getPublicKey, signTransaction } from '@stellar/freighter-api';
 
 import helloWorld from "../contracts/hello_world";
+import incrementor from "../contracts/soroban_increment_contract";
 
-export default async function SavingComponent() {
-
-  // const wrap = document.querySelector('#freighter-wrap');
-  // const ellipsis = document.querySelector('#freighter-wrap .ellipsis');
-  // const button = document.querySelector('[data-connect]');  
+export default async function SavingComponent() {  
 
   const { result } = await helloWorld.hello({ to: "you" });
- const greeting = result.join(" ");
+  const greeting = result.join(" ");
+
+  if (await isAllowed()) {
+    const publicKey = await getPublicKey();
+    if (publicKey) incrementor.options.publicKey = publicKey;
+  }
 
   async function getPk() {
     const { publicKey } = await getUserInfo();
@@ -24,8 +26,12 @@ export default async function SavingComponent() {
     console.log(greeting);
     return publicKey;
   }
-  function saveCollateral() {
+
+  async function saveCollateral() {
     console.log('Saving Collateral');
+    const tx = await incrementor.increment();
+    const { result } = await tx.signAndSend({signTransaction});
+    console.log(result);
   }
 
   return (
@@ -66,7 +72,7 @@ export default async function SavingComponent() {
         </div>
       </CardContent>
       <CardFooter className="items-center">
-        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={getPk} >Pay Collateral</Button>
+        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={saveCollateral} >Pay Collateral</Button>
       </CardFooter>
     </Card>
   )

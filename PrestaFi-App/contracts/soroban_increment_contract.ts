@@ -1,4 +1,4 @@
-import * as Client from 'soroban_increment_contract';
+import * as Client from '../packages/soroban_increment_contract/dist';
 import { rpcUrl } from './util';
 
 export default new Client.Client({
