@@ -29,6 +29,7 @@ export default async function SavingComponent() {
 
   async function saveCollateral() {
     console.log('Saving Collateral');
+    console.log(incrementor.options.publicKey);
     const tx = await incrementor.increment();
     const { result } = await tx.signAndSend({signTransaction});
     console.log(result);
