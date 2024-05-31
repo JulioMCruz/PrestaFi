@@ -12,8 +12,8 @@ import {
   ISupportedWallet,
 } from '@creit.tech/stellar-wallets-kit';
 
-import { useState } from "react";
-import { NULL_ACCOUNT } from "stellar-sdk/contract";
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 const kit: StellarWalletsKit = new StellarWalletsKit({
   network: WalletNetwork.TESTNET,
@@ -25,7 +25,7 @@ const kit: StellarWalletsKit = new StellarWalletsKit({
 
 export default function Home() {
 
-  const [wallet, setWallet] = useState("");
+  const { stellarWalletAddress, setStellarWalletAddress } = useContext(GlobalContext);
 
   async function connectToStellar() {
     await kit.openModal({
@@ -33,8 +33,8 @@ export default function Home() {
         kit.setWallet(option.id);
         const publicKey = await kit.getPublicKey();
         // Do something else
+        setStellarWalletAddress(publicKey);
         console.log(publicKey);
-        setWallet(publicKey);
       },
     });  
   }
@@ -47,9 +47,8 @@ export default function Home() {
 
   const disconnectWallet = async () => {
     try {
-      kit.setWallet(NULL_ACCOUNT);
       // Your logic to disconnect the wallet
-      setWallet("");
+      setStellarWalletAddress("");
       console.log('Wallet disconnected successfully');
     } catch (error) {
       console.error('Failed to disconnect wallet:', error);
@@ -58,9 +57,10 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button onClick={connectToStellar}>Click me</Button>
-      <Button onClick={getPublicKey}> Get Public Key</Button>
-      <Button onClick={disconnectWallet}> Disconnect</Button>
+      {!stellarWalletAddress && (<Button onClick={connectToStellar}>Connect</Button>)}
+      {stellarWalletAddress && (<Button onClick={disconnectWallet}> Disconnect</Button>)}
+      {stellarWalletAddress && (<p>Wallet Address: {stellarWalletAddress}</p>)}
+      {stellarWalletAddress && (<Button onClick={getPublicKey}>Get Public Key</Button>)}
     </main>
   );
 }
