@@ -9,6 +9,7 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import HeaderComponent from "@/components/Header";
 import HeroComponent from "@/components/HeroComponent";
 import CallToActionComponent from "@/components/CallToAction";
+import HowWorksComponent from "@/components/HowWorks";
 
 export default function Home() {
 
@@ -26,7 +27,9 @@ export default function Home() {
 
           <HeroComponent />
 
-          <CallToActionComponent />
+          {/* <CallToActionComponent /> */}
+
+          <HowWorksComponent />
 
           <main className="flex flex-col items-center">
           </main>
