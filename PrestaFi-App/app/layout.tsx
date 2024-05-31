@@ -21,15 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const { setTheme } = useTheme();
-  setTheme("dark");
+  // const { setTheme } = useTheme();
+  // setTheme("light");
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider
                   attribute="class"
-                  defaultTheme="system"
+                  defaultTheme="light"
                   enableSystem
                   disableTransitionOnChange
                 >
