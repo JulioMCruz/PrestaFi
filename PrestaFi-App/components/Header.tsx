@@ -63,10 +63,10 @@ export default function HeaderComponent() {
               Home
             </Link>
             <Link className="text-gray-300 hover:text-white text-xl mx-4" href="/saving">
-              Save
+              Savings
             </Link>
             <Link className="text-gray-300 hover:text-white text-xl mx-4" href="/payments">
-              Investment
+              Payments
             </Link>
           </nav>          
           )}

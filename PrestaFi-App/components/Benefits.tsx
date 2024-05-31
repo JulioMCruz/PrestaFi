@@ -1,7 +1,7 @@
 
 export default function BenefitsComponent() {
     return (
-      <div className="bg-white p-24">
+      <div className="bg-white p-24 max-w-7xl w-full rounded-lg">
         <h2 className="text-3xl font-semibold mb-10 text-black text-center">Benefits of your Loan</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-center text-center space-y-4">
