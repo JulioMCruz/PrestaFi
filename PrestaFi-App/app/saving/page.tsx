@@ -14,9 +14,6 @@ import BenefitsComponent from "@/components/Benefits";
 import FooterSection from "@/components/Footer";
 import SavingComponent from "@/components/Saving";
 
-import { useRouter } from 'next/router';
-
-
 import { useState, useEffect } from "react";
 
 import React from 'react'
@@ -26,25 +23,10 @@ import Confetti from 'react-confetti'
 
 export default function Savings() {
 
-  const router = useRouter();
   const { showConfetti, setShowConfetti } = useContext(GlobalContext);
   const { width, height } = useWindowSize()
   
   // setShowConfetti(false);
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      // Place your function or code here
-      setShowConfetti(false);
-    };
-
-    router.events.on('routeChangeStart', handleRouteChange);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-    };
-  }, [router.events, setShowConfetti]);  
 
   return (
     <>

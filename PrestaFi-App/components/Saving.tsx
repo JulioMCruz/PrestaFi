@@ -36,6 +36,7 @@ export default function SavingComponent() {
     }
     setShowConfetti(true);
     console.log(showConfetti);
+    setTimeout( setShowConfetti(false), 2000);
   }
 
   return (
