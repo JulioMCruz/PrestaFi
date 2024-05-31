@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button"
 import { JSX, SVGProps } from "react"
 
 export default function SavingComponent() {
+
+  function saveCollateral() {
+    console.log('Saving Collateral');
+  }
+
   return (
     <Card className="w-full max-w-md p-4 bg-[#effdf4] text-black mt-24">
       <CardHeader>
@@ -44,7 +49,7 @@ export default function SavingComponent() {
         </div>
       </CardContent>
       <CardFooter className="items-center">
-        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" >Pay Collateral</Button>
+        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={saveCollateral} >Pay Collateral</Button>
       </CardFooter>
     </Card>
   )
