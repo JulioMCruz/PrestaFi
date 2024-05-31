@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 
 import HeaderComponent from "@/components/Header";
+import HeroComponent from "@/components/HeroComponent";
 
 export default function Home() {
 
@@ -22,8 +23,9 @@ export default function Home() {
 
           <HeaderComponent />     
 
-          <main className="flex flex-col items-center">
+          <HeroComponent />
 
+          <main className="flex flex-col items-center">
           </main>
         </div>
       </div>
