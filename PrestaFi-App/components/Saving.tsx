@@ -9,20 +9,18 @@ import { isAllowed, setAllowed, getUserInfo, getPublicKey, signTransaction } fro
 import helloWorld from "../contracts/hello_world";
 import incrementor from "../contracts/soroban_increment_contract";
 
-export default async function SavingComponent() {  
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
-  const { result } = await helloWorld.hello({ to: "you" });
-  const greeting = result.join(" ");
+export default function SavingComponent() {  
 
-  if (await isAllowed()) {
-    const publicKey = await getPublicKey();
-    if (publicKey) incrementor.options.publicKey = publicKey;
-  }
+  const { stellarWalletAddress, setShowConfetti } = useContext(GlobalContext);
+
+  incrementor.options.publicKey = stellarWalletAddress;
 
   async function getPk() {
     const { publicKey } = await getUserInfo();
     console.log(publicKey);
-    console.log(greeting);
     return publicKey;
   }
 
@@ -32,9 +30,12 @@ export default async function SavingComponent() {
     const tx = await incrementor.increment();
     const { result } = await tx.signAndSend({signTransaction});
     console.log(result);
+    setShowConfetti(true);
   }
 
   return (
+    <>
+ 
     <Card className="w-full max-w-md p-4 bg-[#effdf4] text-black mt-24">
       <CardHeader>
         <CardTitle>Wallet Concept</CardTitle>
@@ -75,6 +76,7 @@ export default async function SavingComponent() {
         <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={saveCollateral} >Pay Collateral</Button>
       </CardFooter>
     </Card>
+    </>
   )
 }
 
