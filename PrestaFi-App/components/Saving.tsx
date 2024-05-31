@@ -5,8 +5,20 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { JSX, SVGProps } from "react"
 
+import { isAllowed, setAllowed, getUserInfo } from '@stellar/freighter-api';
+
+
 export default function SavingComponent() {
 
+  // const wrap = document.querySelector('#freighter-wrap');
+  // const ellipsis = document.querySelector('#freighter-wrap .ellipsis');
+  // const button = document.querySelector('[data-connect]');  
+
+  async function getPk() {
+    const { publicKey } = await getUserInfo();
+    console.log(publicKey);
+    return publicKey;
+  }
   function saveCollateral() {
     console.log('Saving Collateral');
   }
@@ -49,7 +61,7 @@ export default function SavingComponent() {
         </div>
       </CardContent>
       <CardFooter className="items-center">
-        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={saveCollateral} >Pay Collateral</Button>
+        <Button className="w-full text-[#70f7c9] border-[#70f7c9]" variant="outline" onClick={getPk} >Pay Collateral</Button>
       </CardFooter>
     </Card>
   )
