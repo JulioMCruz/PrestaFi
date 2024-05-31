@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { JSX, SVGProps } from "react"
 
 import { isAllowed, setAllowed, getUserInfo, getPublicKey, signTransaction } from '@stellar/freighter-api';
-
 import helloWorld from "../contracts/hello_world";
 import incrementor from "../contracts/soroban_increment_contract";
 

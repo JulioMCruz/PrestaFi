@@ -3,7 +3,25 @@ import { Button } from "@/components/ui/button"
 import { ResponsiveBar } from '@nivo/bar'
 import { JSX, ClassAttributes, HTMLAttributes } from "react"
 
-export default function PaymentComponent() {
+import { isAllowed, setAllowed, getUserInfo, getPublicKey, signTransaction } from '@stellar/freighter-api';
+import helloWorld from "../contracts/hello_world";
+import incrementor from "../contracts/soroban_increment_contract";
+
+export default async function PaymentComponent() {
+
+  if (await isAllowed()) {
+    const publicKey = await getPublicKey();
+    if (publicKey) incrementor.options.publicKey = publicKey;
+  }
+
+  async function payCollateral() {
+    console.log('Saving Collateral');
+    console.log(incrementor.options.publicKey);
+    const tx = await incrementor.increment();
+    const { result } = await tx.signAndSend({signTransaction});
+    console.log(result);
+  }
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-24">
       <div className="mb-4">
@@ -17,7 +35,7 @@ export default function PaymentComponent() {
         <h3 className="text-lg font-semibold text-gray-700">This month I will pay</h3>
         <div className="flex justify-between items-center mt-2">
           <span className="text-xl font-bold text-gray-900">$1,000 USD</span>
-          <Button className="bg-[#047463] hover:bg-[#047463] text-white font-bold py-2 px-4 rounded">Pay</Button>
+          <Button className="bg-[#047463] hover:bg-[#047463] text-white font-bold py-2 px-4 rounded" onClick={payCollateral}>Pay</Button>
         </div>
       </div>
       <div className="mb-4">
