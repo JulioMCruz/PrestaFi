@@ -8,6 +8,7 @@ import { JSX, SVGProps } from "react"
 import { isAllowed, setAllowed, getUserInfo } from '@stellar/freighter-api';
 
 
+
 export default function SavingComponent() {
 
   // const wrap = document.querySelector('#freighter-wrap');
