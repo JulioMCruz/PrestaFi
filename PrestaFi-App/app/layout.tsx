@@ -1,12 +1,14 @@
 "use client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { ThemeProvider } from "@/components/theme-provider"
 import { GlobalProvider } from '../contexts/GlobalContext';
 
 const inter = Inter({ subsets: ["latin"] });
+import { useTheme } from "next-themes";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -18,12 +20,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const { setTheme } = useTheme();
+  setTheme("dark");
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GlobalProvider>
-          {children}
-        </GlobalProvider>
+        <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                >
+                  <GlobalProvider>
+                    {children}
+                  </GlobalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
