@@ -14,7 +14,7 @@ import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function SavingComponent() {  
 
-  const { stellarWalletAddress, setShowConfetti } = useContext(GlobalContext);
+  const { stellarWalletAddress, showConfetti, setShowConfetti } = useContext(GlobalContext);
 
   incrementor.options.publicKey = stellarWalletAddress;
 
@@ -35,6 +35,7 @@ export default function SavingComponent() {
       console.log(error);
     }
     setShowConfetti(true);
+    console.log(showConfetti);
   }
 
   return (
