@@ -26,7 +26,7 @@ export default function Savings() {
   const { showConfetti, setShowConfetti } = useContext(GlobalContext);
   const { width, height } = useWindowSize()
   
-  setShowConfetti(false);
+  // setShowConfetti(false);
 
   return (
     <>
