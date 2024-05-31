@@ -59,10 +59,10 @@ export default function HeaderComponent() {
           </Link> 
           { stellarWalletAddress && (
           <nav className="hidden md:flex mt-6">
-            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="#">
+            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/">
               Home
             </Link>
-            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/#">
+            <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="/saving">
               Save
             </Link>
             <Link className="text-gray-300 hover:text-white text-2xl mx-4" href="#">
