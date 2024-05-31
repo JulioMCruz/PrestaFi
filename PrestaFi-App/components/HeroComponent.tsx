@@ -2,8 +2,8 @@
 export default function HeroComponent() {
 
 return (
-    <div className="w-full">
-    <div className="pt-0 p-4 rounded-lg overflow-hidden">
+    <div className="max-w-7xl w-full items-center">
+    <div className="rounded-lg overflow-hidden">
       <div
         style={{ backgroundImage: `url(/family-saving.jpeg)` }}
         className="rounded-lg relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover"

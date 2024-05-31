@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function HowWorksComponent() {
   return (
-    <div className="bg-[#f0fdf4] p-12">
+    <div className="bg-[#f0fdf4] p-12 max-w-7xl w-full rounded-lg">
       <h2 className="text-4xl font-bold text-center mb-10">Why do you want to Save?</h2>
       <div className="flex justify-between">
         <div className="max-w-sm rounded-lg border border-[#34d399] p-6 m-2">
