@@ -28,15 +28,13 @@ export default function SavingComponent() {
     console.log('Saving Collateral');
     console.log(incrementor.options.publicKey);
     const tx = await incrementor.increment();
-    await tx.signAndSend({signTransaction}).then((result) => {
-      console.log(result);
-      setShowConfetti(true);
-    }).catch((error) => {
+    try {
+      const { result } = await tx.signAndSend({signTransaction});
+      console.log(result);        
+    } catch (error) {
       console.log(error);
-      setShowConfetti(true);
-    });
-    //console.log(result);
-    //setShowConfetti(true);
+    }
+    setShowConfetti(true);
   }
 
   return (
