@@ -7,17 +7,21 @@ import { JSX, SVGProps } from "react"
 
 import { isAllowed, setAllowed, getUserInfo } from '@stellar/freighter-api';
 
+import helloWorld from "../contracts/hello_world";
 
-
-export default function SavingComponent() {
+export default async function SavingComponent() {
 
   // const wrap = document.querySelector('#freighter-wrap');
   // const ellipsis = document.querySelector('#freighter-wrap .ellipsis');
   // const button = document.querySelector('[data-connect]');  
 
+  const { result } = await helloWorld.hello({ to: "you" });
+ const greeting = result.join(" ");
+
   async function getPk() {
     const { publicKey } = await getUserInfo();
     console.log(publicKey);
+    console.log(greeting);
     return publicKey;
   }
   function saveCollateral() {
