@@ -738,6 +738,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
 
 [[package]]
+name = "prestafi-liquidity-pool"
+version = "0.0.0"
+dependencies = [
+ "num-integer",
+ "soroban-sdk",
+]
+
+[[package]]
 name = "prettyplease"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1112,6 +1120,23 @@ dependencies = [
  "stellar-xdr",
  "syn",
  "thiserror",
+]
+
+[[package]]
+name = "soroban-token-contract"
+version = "0.0.6"
+dependencies = [
+ "soroban-sdk",
+ "soroban-token-sdk",
+]
+
+[[package]]
+name = "soroban-token-sdk"
+version = "20.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ee8ed0ae2e5d5e67b7939200bba3712b4c81dcf87b2ccd68bba049bec64c780f"
+dependencies = [
+ "soroban-sdk",
 ]
 
 [[package]]

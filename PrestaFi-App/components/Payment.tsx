@@ -23,7 +23,7 @@ export default async function PaymentComponent() {
   }
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-24">
+    <div className="max-w-lg min-w-96 mx-auto p-6 bg-white rounded-lg shadow-md mt-24">
       <div className="mb-4">
         <h2 className="text-lg font-semibold text-gray-700">You choose saving for</h2>
         <p className="text-xl font-bold text-gray-900">$1,200 USD</p>
@@ -34,7 +34,7 @@ export default async function PaymentComponent() {
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-gray-700">This month I will pay</h3>
         <div className="flex justify-between items-center mt-2">
-          <span className="text-xl font-bold text-gray-900">$1,000 USD</span>
+          <span className="text-xl font-bold text-gray-900">$100 USD</span>
           <Button className="bg-[#047463] hover:bg-[#047463] text-white font-bold py-2 px-4 rounded" onClick={payCollateral}>Pay</Button>
         </div>
       </div>
@@ -50,12 +50,18 @@ function BarChart(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElemen
     <div {...props}>
       <ResponsiveBar
         data={[
-          { name: "Jan", count: 111 },
-          { name: "Feb", count: 157 },
-          { name: "Mar", count: 129 },
-          { name: "Apr", count: 150 },
-          { name: "May", count: 119 },
-          { name: "Jun", count: 72 },
+          { name: "Jan", count: 100 },
+          { name: "Feb", count: 100 },
+          { name: "Mar", count: 100 },
+          { name: "Apr", count: 100 },
+          { name: "May", count: 100 },
+          { name: "Jun", count: 100 },
+          { name: "Jul", count: 100 },
+          { name: "Aug", count: 100 },
+          { name: "Sep", count: 100 },
+          { name: "Oct", count: 100 },
+          { name: "Nov", count: 100 },
+          { name: "Dec", count: 100 },
         ]}
         keys={["count"]}
         indexBy="name"
