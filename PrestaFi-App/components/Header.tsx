@@ -80,7 +80,7 @@ export default function HeaderComponent() {
             { stellarWalletAddress && (
               <div className="flex">
                 <AddressDisplayComponent />
-                <Button className="text-[#70f7c9] border-[#70f7c9] mr-8  mt-6" variant="outline" onClick={disconnectWallet}>
+                <Button className="text-[#70f7c9] border-[#70f7c9] mr-8 mt-6" variant="outline" onClick={disconnectWallet}>
                   Logout
                 </Button>
               </div>

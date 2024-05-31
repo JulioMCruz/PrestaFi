@@ -20,8 +20,8 @@ export default function AddressDisplayComponent() {
   }
 
   return (<>
-      <div className="flex items-center gap-3 rounded-xl border border-gray-200 px-2 dark:border-[#70f7c9] right-0 mr-4">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center rounded-xl border border-gray-200 px-2 dark:border-[#70f7c9] mr-4 mt-6">
+        <div className="flex items-center">
           {/* <div className="text-sm font-mono text-gray-500 dark:text-gray-400">ID:</div> */}
           <div className="text-sm font-mono text-gray-500 dark:text-gray-400">{stellarWalletAddress.substring(0, 6)}...{stellarWalletAddress.substring(stellarWalletAddress.length - 6)}</div>
           <Button size="icon" variant="ghost" onClick={copyAddressToClipboard}>
